@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>家庭菜单 · 早餐 / 简餐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background: #fff8f0;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+    }
+    .hero-header {
+      background: linear-gradient(135deg, #ff9a3c, #ff3e3e);
+      color: white;
+      padding: 36px 0 28px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .hero-header h1 {
+      font-weight: 700;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+      font-size: 1.9rem;
+    }
+    .hero-header p {
+      opacity: 0.95;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero-header">
+  <div class="container">
+    <h1>家庭菜单 · 早餐 / 简餐</h1>
+    <p>适合早晨或需要快速解决一餐的时候</p>
+  </div>
+</header>
+
+<main class="container my-4 mb-5" style="max-width: 800px;">
+
+  <!-- 返回分类页 -->
+  <div class="mb-3">
+    <a href="categories.html" class="text-decoration-none" style="color:#ff7b42;">
+      ← 返回 Back 
+    </a>
+  </div>
+
+  <!-- 标题 & 简介（JS 会覆盖成 CATEGORY_TITLE / SUBTITLE） -->
+  <h2 id="category-title" class="mb-1">早餐 / 简餐</h2>
+  <p id="category-subtitle" class="text-muted mb-3">
+    可以通过名称搜索，或让系统帮你随机推荐一道菜。
+  </p>
+
+  <!-- 上半部分：搜索 + 随机推荐按钮 -->
+  <section class="card mb-3 border-0 shadow-sm">
+    <div class="card-body">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-8">
+          <label for="search-input" class="form-label mb-1">搜索菜名：</label>
+          <input
+            type="text"
+            id="search-input"
+            class="form-control"
+            placeholder="输入部分菜名，例如：粥、豆浆、手抓饼..."
+          >
+        </div>
+        <div class="col-md-4 d-grid">
+          <button id="random-btn" class="btn btn-warning text-white fw-semibold">
+            随机推荐一道菜 🎲
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 随机推荐结果 -->
+  <div id="random-result" class="d-none mb-3"></div>
+
+  <!-- 菜名列表 -->
+  <ul id="food-list" class="list-group mb-3"></ul>
+
+  <!-- 搜索无结果提示 -->
+  <div id="no-result" class="text-center text-muted d-none mb-4">
+    没有找到符合条件的菜，可以换个关键词试试。
+  </div>
+</main>
+
+<footer class="text-center py-4 text-muted">
+  YAN. ©
+</footer>
+
+<!-- 先加载菜品数据 -->
+<script src="js/foods.js"></script>
+
+<!-- 为当前页面设置分类 KEY 和标题，供 category-page.js 使用 -->
+<script>
+  const CATEGORY_KEY = "breakfast";               // 对应 foodsData.breakfast
+  const CATEGORY_TITLE = "早餐 / 简餐";
+  const CATEGORY_SUBTITLE = "【不要忘记搭配水果与坚果哟】";
+</script>
+
+<!-- 通用分类页面逻辑（负责渲染列表、星星、搜索、随机推荐） -->
+<script src="js/category-page.js"></script>
+
+</body>
+</html>
