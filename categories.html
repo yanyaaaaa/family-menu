@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>家庭菜单 · 分类</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background: #fff8f0; /* 奶油色背景，跟首页统一 */
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+    }
+
+    .hero-header {
+      background: linear-gradient(135deg, #ff9a3c, #ff3e3e);
+      color: white;
+      padding: 40px 0 32px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .hero-header h1 {
+      font-weight: 700;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero-header p {
+      opacity: 0.95;
+    }
+
+    .category-card {
+      border-radius: 18px;
+      overflow: hidden;
+      border: none;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(255,120,60,0.12);
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(255,120,60,0.25);
+    }
+
+    .category-card img {
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .category-ribbon {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #fff;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .emoji {
+      font-size: 1.2rem;
+      margin-right: 4px;
+    }
+
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    footer {
+      color: #aa7b6f;
+      font-size: 0.9rem;
+    }
+
+    /* 食材搜索结果里的分类标签 */
+    .badge-category {
+      background-color: #ffe0c2;
+      color: #b45309;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero-header">
+  <div class="container">
+    <h1 class="mb-2">家庭菜单·分类</h1>
+    <p class="mb-0">选择一个分类，查看对应的菜品列表</p>
+  </div>
+</header>
+
+<main class="container my-4 mb-5">
+
+  <!-- 分类网格 -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <!-- 1. 所有菜品 -->
+    <div class="col">
+      <a href="category-all.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">📖</span>ALL</span>
+          <img src="images/all.jpg" class="card-img-top" alt="所有菜品">
+          <div class="card-body">
+            <h5 class="card-title mb-2">所有菜品</h5>
+            <p class="card-text text-muted">
+              浏览菜单中收录的全部菜
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 2. 早餐 / 简餐 -->
+    <div class="col">
+      <a href="category-breakfast.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🍳</span>Breakfast</span>
+          <img src="images/breakfast.jpg" class="card-img-top" alt="早餐 / 简餐">
+          <div class="card-body">
+            <h5 class="card-title mb-2">早餐 / 简餐</h5>
+            <p class="card-text text-muted">
+              粥类、饼、吐司、豆浆等适合简易早餐
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 3. 凉拌 / 熟食类 -->
+    <div class="col">
+      <a href="category-cold.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🥗</span>Cold</span>
+          <img src="images/cold-dishes.jpg" class="card-img-top" alt="凉拌熟食类">
+          <div class="card-body">
+            <h5 class="card-title mb-2">凉拌 / 熟食类</h5>
+            <p class="card-text text-muted">
+              凉拌菜、卤牛肉、白切肉、沙拉等开胃菜
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 4. 主食（饭 / 面 / 粉） -->
+    <div class="col">
+      <a href="category-staple.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🍚</span>Staple</span>
+          <img src="images/staple.jpg" class="card-img-top" alt="主食（饭 / 面 / 粉）">
+          <div class="card-body">
+            <h5 class="card-title mb-2">主食（饭 / 面 / 粉）</h5>
+            <p class="card-text text-muted">
+              炒饭、各类汤面、拌面、炒粉干、意面等
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 5. 素菜与豆类 -->
+    <div class="col">
+      <a href="category-veggie-beans.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🥬</span>Veggie</span>
+          <img src="images/veggie-beans.jpg" class="card-img-top" alt="素菜与豆类">
+          <div class="card-body">
+            <h5 class="card-title mb-2">素菜与豆类</h5>
+            <p class="card-text text-muted">
+              清炒时蔬、豆腐、等清爽又营养的菜式
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 6. 猪肉类 -->
+    <div class="col">
+      <a href="category-pork.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🐷</span>Pork</span>
+          <img src="images/pork.jpg" class="card-img-top" alt="猪肉类">
+          <div class="card-body">
+            <h5 class="card-title mb-2">猪肉类</h5>
+            <p class="card-text text-muted">
+              红烧肉、排骨、糖醋排骨、叉烧、各类肉丸等
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 7. 牛肉类 -->
+    <div class="col">
+      <a href="category-beef.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🐄</span>Beef</span>
+          <img src="images/beef.jpg" class="card-img-top" alt="牛肉类">
+          <div class="card-body">
+            <h5 class="card-title mb-2">牛肉类</h5>
+            <p class="card-text text-muted">
+              煎牛排、各种炒牛肉等
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 8. 鸡肉类 -->
+    <div class="col">
+      <a href="category-chicken.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🐔</span>Chicken</span>
+          <img src="images/chicken.jpg" class="card-img-top" alt="鸡肉类">
+          <div class="card-body">
+            <h5 class="card-title mb-2">鸡肉类</h5>
+            <p class="card-text text-muted">
+              烤鸡翅、鸡腿、炸鸡等
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 9. 海鲜 -->
+    <div class="col">
+      <a href="category-seafood.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🦐</span>Seafood</span>
+          <img src="images/seafood.jpg" class="card-img-top" alt="海鲜">
+          <div class="card-body">
+            <h5 class="card-title mb-2">海鲜</h5>
+            <p class="card-text text-muted">
+              鱼、虾、螃蟹、扇贝等海鲜料理
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 10. 饮品 -->
+    <div class="col">
+      <a href="category-drinks.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🍹</span>Drinks</span>
+          <img src="images/drinks.jpg" class="card-img-top" alt="饮品">
+          <div class="card-body">
+            <h5 class="card-title mb-2">饮品</h5>
+            <p class="card-text text-muted">
+              家庭版自制饮品、果茶及其他饮料
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 11. 小食 / 零嘴 -->
+    <div class="col">
+      <a href="category-snacks.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🍘</span>Snacks</span>
+          <img src="images/snacks.jpg" class="card-img-top" alt="小食 / 零嘴">
+          <div class="card-body">
+            <h5 class="card-title mb-2">小食 / 零嘴</h5>
+            <p class="card-text text-muted">
+              追剧、下午茶、解馋时的小点心和零嘴
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 12. 节日特色 -->
+    <div class="col">
+      <a href="category-festival.html" class="card-link">
+        <div class="card category-card h-100">
+          <span class="category-ribbon"><span class="emoji">🧧</span>Festival</span>
+          <img src="images/festival.jpg" class="card-img-top" alt="节日特色">
+          <div class="card-body">
+            <h5 class="card-title mb-2">节日特色</h5>
+            <p class="card-text text-muted">
+              特别日子才会上桌的节日特供菜
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div> <!-- 分类网格结束 -->
+
+  <!-- ========= 这里是新增的【按食材搜索】区块 ========= -->
+  <section class="mt-5">
+    <div class="card border-0 shadow-sm mx-auto" style="max-width: 720px;">
+      <div class="card-body">
+        <h2 class="h5 mb-2 text-center">按食材搜索菜谱</h2>
+        <p class="text-muted text-center mb-4" style="font-size:0.9rem;">
+          冰箱里的食材都能做哪些菜呢~
+        </p>
+
+        <div class="row g-3 align-items-end justify-content-center">
+          <div class="col-md-7">
+            <label for="ingredient-input" class="form-label mb-1">食材：</label>
+            <input
+              type="text"
+              id="ingredient-input"
+              class="form-control"
+              placeholder="例如：鸡蛋、牛肉、土豆、虾..."
+            >
+          </div>
+          <div class="col-md-3 d-grid">
+            <button id="ingredient-search-btn" class="btn btn-warning text-white fw-semibold">
+              搜索相关菜谱 🔍
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 搜索结果 -->
+    <div class="mt-4 mx-auto" style="max-width: 720px;">
+      <h3 class="h6 mb-2">搜索结果</h3>
+      <ul id="ingredient-result-list" class="list-group mb-3"></ul>
+      <div id="ingredient-no-result" class="text-center text-muted d-none mb-4">
+        暂时没有找到包含这个食材的菜，可以换一个关键词试试。
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="text-center py-4">
+  YAN. © 2025 · Family Menu
+</footer>
+
+<!-- 数据（里面有 foodsData 和 foodsData.all） -->
+<script src="js/foods.js"></script>
+
+<!-- 按食材搜索的逻辑 -->
+<script src="js/ingredient-page.js"></script>
+
+</body>
+</html>
