@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ing = document.createElement("div");
         ing.className = "mt-1";
         ing.style.fontSize = "0.9rem";
-        ing.innerHTML = `{item.ingredients}`;
+        ing.innerHTML = `<strong>食材：</strong>${item.ingredients}`;
         li.appendChild(ing);
       }
 
