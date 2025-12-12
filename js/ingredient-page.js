@@ -14,16 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 分类 key → 显示用中文名称（用于小标签）
   const categoryLabels = {
-    breakfast: "早餐 / 简餐",
-    cold: "凉拌 / 熟食",
-    staple: "主食（饭 / 面 / 粉）",
-    veggieBeans: "素菜与豆类",
+    breakfast: "早餐/简餐",
+    cold: "凉拌/熟食",
+    staple: "主食",
+    veggieBeans: "素菜",
     pork: "猪肉类",
     beef: "牛肉类",
     chicken: "鸡肉类",
     seafood: "海鲜",
     drinks: "饮品",
-    snacks: "小食 / 零嘴",
+    snacks: "汤",
     festival: "节日特色"
   };
 
